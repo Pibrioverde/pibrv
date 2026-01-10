@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pibrioverde</title>
+  <link rel="icon" href="assets/pibrioverde_1.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Links oficiais da Pibrioverde: YouTube, Spotify, Instagram e WhatsApp!" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#111a2e;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.10);
+      --text:#eef2ff;
+      --muted:rgba(238,242,255,.72);
+      --btn:rgba(255,255,255,.08);
+      --btnHover:rgba(255,255,255,.14);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --max: 560px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      min-height:100vh;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(99,102,241,.25), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(16,185,129,.18), transparent 60%),
+        radial-gradient(900px 500px at 55% 90%, rgba(59,130,246,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 16px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max);
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      backdrop-filter: blur(12px);
+    }
+
+    header{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .avatar{
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      border:1px solid var(--stroke);
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,.10), transparent 45%),
+        rgba(255,255,255,.06);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+
+    /* se você quiser usar foto, descomente e coloque sua imagem no src do <img> */
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    h1{
+      font-size:18px;
+      margin:0 0 4px;
+      letter-spacing:.2px;
+    }
+    .bio{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    a.btn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      text-decoration:none;
+      color:var(--text);
+      padding:14px 14px;
+      border-radius:14px;
+      background:var(--btn);
+      border:1px solid var(--stroke);
+      transition: transform .12s ease, background .12s ease;
+      will-change: transform;
+    }
+    a.btn:hover{
+      background:var(--btnHover);
+      transform: translateY(-1px);
+    }
+    a.btn:active{
+      transform: translateY(0px) scale(.99);
+    }
+
+    .left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .icon{
+      width:22px;
+      height:22px;
+      opacity:.95;
+      flex:0 0 auto;
+    }
+
+    .label{
+      font-weight:600;
+      font-size:14px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .hint{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .arrow{
+      width:18px;
+      height:18px;
+      opacity:.7;
+      flex:0 0 auto;
+    }
+
+    footer{
+      margin-top:14px;
+      text-align:center;
+      color:rgba(238,242,255,.55);
+      font-size:12px;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      margin-top:10px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background:rgba(16,185,129,.9);
+      box-shadow:0 0 0 6px rgba(16,185,129,.15);
+    }
+
+    /* modo claro (opcional): adicione class="light" no body */
+    body.light{
+      --bg1:#f6f7fb;
+      --bg2:#e9eef8;
+      --card:rgba(255,255,255,.75);
+      --stroke:rgba(10,20,40,.10);
+      --text:#0b1220;
+      --muted:rgba(11,18,32,.65);
+      --btn:rgba(255,255,255,.85);
+      --btnHover:rgba(255,255,255,.95);
+      --shadow: 0 18px 60px rgba(10,20,40,.12);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card">
+      <header>
+        <div class="avatar">
+           <img src="assets/pibrioverde_2.ico" alt="Pib">
+        </div>
+        <div>
+          <h1>Pib Rio Verde</h1>
+          <p class="bio">Cultos aos Domingo: 10h15 & 19h</p>
+          
+        </div>
+      </header>
+
+      <div class="links">
+        <!-- Troque os href pelos seus links -->
+        <a class="btn" href="https://www.youtube.com/@pibrioverde" target="_blank" rel="noopener">
+          <div class="left">
+            <!-- YouTube -->
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.7 12 4.7 12 4.7s-5.7 0-7.5.4A3 3 0 0 0 2.4 7.2 31.6 31.6 0 0 0 2 12a31.6 31.6 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.4 7.5.4 7.5.4s5.7 0 7.5-.4a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 22 12a31.6 31.6 0 0 0-.4-4.8zM10 15.5V8.5L16 12l-6 3.5z"/>
+            </svg>
+            <div>
+              <div class="label">YouTube</div>
+              <div class="hint">Assista as pregações e conteúdos</div>
+            </div>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
+          </svg>
+        </a>
+
+        <a class="btn" href="https://open.spotify.com/show/0kngYenPkh9jRMSiMgU2Ly?si=Nl5nVVb_RPWY_t0o0qxHeQ" target="_blank" rel="noopener">
+          <div class="left">
+            <!-- Spotify -->
+            <img src="assets/Spotify.ico" class="icon" alt="Spotify"/>
+            <div>
+              <div class="label">ProclameCast</div>
+              <div class="hint">Ouça nosso podcast</div>
+            </div>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
+          </svg>
+        </a>
+
+        <a class="btn" href="https://www.instagram.com/pibrioverde/" target="_blank" rel="noopener">
+          <div class="left">
+            <!-- Instagram -->
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zM17.6 6.6a.8.8 0 1 1-.8.8.8.8 0 0 1 .8-.8z"/>
+            </svg>
+            <div>
+              <div class="label">Instagram</div>
+              <div class="hint">Avisos e novidades</div>
+            </div>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
+          </svg>
+        </a>
+
+        <a class="btn" href="https://wa.me/556499344612?text=Olá!%20Vim%20pelo%20seu%20link." target="_blank" rel="noopener">
+          <div class="left">
+            <!-- WhatsApp -->
+            <img src="assets/Zap.ico" class="icon" alt="maps"/>
+            <div>
+              <div class="label">WhatsApp</div>
+              <div class="hint">Fale conosco</div>
+            </div>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
+          </svg>
+        </a>
+
+        <a class="btn" href="https://www.google.com/maps/place/Primeira+Igreja+Batista+em+Rio+Verde+-+Av.+Pres.+Vargas,+399+-+Centro,+Rio+Verde+-+GO,+75901-040/data=!4m2!3m1!1s0x9361dc9dca61c391:0x2c5a4e5682c76bb?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI1LjMwLjMYACCenQoqmQEsOTQyNjc3MjcsOTQyODIzMzcsOTQyODQ0OTMsOTQyMjMyOTksOTQyMTY0MTMsOTQyODA1NzYsOTQyMTI0OTYsOTQyMDczOTQsOTQyMDc1MDYsOTQyMDg1MDYsOTQyMTc1MjMsOTQyMTg2NTMsOTQyMjk4MzksOTQyNzUxNjgsNDcwODQzOTMsOTQyMTMyMDAsOTQyNTgzMjVCAkJS&skid=0a5a1a91-9001-4a17-97cd-fabfc89879e8" target="_blank" rel="noopener">
+          <div class="left">
+            <img src="assets/maps (1).ico" class="icon" alt="maps"/>
+            <div>
+              <div class="label">Maps</div>
+              <div class="hint">Nossa localização</div>
+            </div>
+          </div>
+            <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
+            </svg>  
+        </a>
+
+
+        <!-- Exemplo extra (site/telegram/etc):
+        <a class="btn" href="https://seusite.com" target="_blank" rel="noopener">
+          <div class="left">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="..."/></svg>
+            <div>
+              <div class="label">Meu Site</div>
+              <div class="hint">Portfólio e projetos</div>
+            </div>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="..."/></svg>
+        </a>
+        -->
+      </div>
+
+      <footer>
+        © <span id="year"></span> Pib Rio Verde • Do outro lado da Rua do outro lado do mundo
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
