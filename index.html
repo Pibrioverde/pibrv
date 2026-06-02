@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pib Rio Verde</title>
-  <link rel="icon" href="assets/PIB_.ico sizes="any">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="assets/PIB.png">
   <meta name="description" content="Links oficiais da Pibrioverde: YouTube, Spotify, Instagram e WhatsApp!" />
 
   <!-- Google Font -->
@@ -29,21 +27,41 @@
       --max: 560px;
     }
 
+    @keyframes gradientShift {
+      0%   { opacity: 1; }
+      50%  { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
       min-height:100vh;
-      background:
-        radial-gradient(900px 500px at 15% 10%, rgba(99,102,241,.25), transparent 60%),
-        radial-gradient(900px 500px at 85% 20%, rgba(16,185,129,.18), transparent 60%),
-        radial-gradient(900px 500px at 55% 90%, rgba(59,130,246,.18), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
+      background: #0d0050;
+      position: relative;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:28px 16px;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
+
+    body::before {
+      background: linear-gradient(135deg, #05001f, #1a1a6e, #05001f);
+    }
+
+    body::after {
+      background: linear-gradient(135deg, #1a1a6e, #05001f, #1a1a6e);
+      animation: gradientShift 6s ease-in-out infinite;
     }
 
     .wrap{
