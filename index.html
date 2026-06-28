@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pib Rio Verde</title>
-  <link rel="icon" type="image/png" href="assets/PIB.png">
+  <link rel="icon" type="image/png" href="assets/logo2.png">
   <meta name="description" content="Links oficiais da Pibrioverde: YouTube, Spotify, Instagram e WhatsApp!" />
 
   <!-- Google Font -->
@@ -129,7 +129,7 @@
     .links{
       display:flex;
       flex-direction:column;
-      gap:10px;
+      gap:14px;
       margin-top:16px;
     }
 
@@ -165,8 +165,12 @@
     .icon{
       width:22px;
       height:22px;
+      min-width:22px;
+      min-height:22px;
       opacity:.95;
-      flex:0 0 auto;
+      flex:0 0 22px;
+      object-fit:contain;
+      display:block;
     }
 
     .label{
@@ -214,6 +218,22 @@
       box-shadow:0 0 0 6px rgba(16,185,129,.15);
     }
 
+    .group-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding-left: 4px;
+      margin-bottom: -2px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px dashed var(--stroke);
+      margin: 6px 0 4px;
+    }
+
     .events-section {
       margin-top: 24px;
       padding-top: 24px;
@@ -237,6 +257,11 @@
       background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(236, 72, 153, 0.12));
       border: 1px solid rgba(236, 72, 153, 0.25);
       position: relative;
+    }
+
+    a.btn.event-btn .label {
+      white-space: normal;
+      line-height: 1.4;
     }
     
     a.btn.event-btn:hover {
@@ -266,6 +291,38 @@
       0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5); }
       70% { box-shadow: 0 0 0 6px rgba(236, 72, 153, 0); }
       100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+    }
+
+    /* Carrossel de eventos */
+    .carousel-wrap{
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-track{
+      display: flex;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+    }
+    .carousel-slide{
+      flex: 0 0 100%;
+      min-width: 0;
+      margin-bottom: 0 !important;
+    }
+    .carousel-dots{
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .carousel-dots .dot-btn{
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      border: none; padding: 0; cursor: pointer;
+      background: rgba(255,255,255,.25);
+      transition: background .2s, transform .2s;
+    }
+    .carousel-dots .dot-btn.active{
+      background: rgba(236,72,153,.85);
+      transform: scale(1.25);
     }
 
     /* modo claro (opcional): adicione class="light" no body */
@@ -298,111 +355,63 @@
       </header>
 
       <div class="links">
-        <!-- Troque os href pelos seus links -->
-        <a class="btn" href="https://www.youtube.com/@pibrioverde" target="_blank" rel="noopener">
+
+        <a class="btn" href="sou-novo-aqui.html" target="_blank" rel="noopener">
           <div class="left">
-            <!-- YouTube -->
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.7 12 4.7 12 4.7s-5.7 0-7.5.4A3 3 0 0 0 2.4 7.2 31.6 31.6 0 0 0 2 12a31.6 31.6 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.4 7.5.4 7.5.4s5.7 0 7.5-.4a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 22 12a31.6 31.6 0 0 0-.4-4.8zM10 15.5V8.5L16 12l-6 3.5z"/>
-            </svg>
-            <div>
-              <div class="label">YouTube</div>
-              <div class="hint">Assista as pregações e conteúdos</div>
-            </div>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm7 17a1 1 0 0 1-2 0c0-2.76-2.24-5-5-5s-5 2.24-5 5a1 1 0 0 1-2 0c0-3.86 3.14-7 7-7s7 3.14 7 7z"/></svg>
+            <div><div class="label">Eu sou novo aqui</div><div class="hint">Horários, localização, membresia e mais</div></div>
           </div>
-          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
-          </svg>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/></svg>
         </a>
 
-        <a class="btn" href="https://open.spotify.com/show/0kngYenPkh9jRMSiMgU2Ly?si=Nl5nVVb_RPWY_t0o0qxHeQ" target="_blank" rel="noopener">
+        <a class="btn" href="https://forms.gle/qQ1jTewsr28iWLt48" target="_blank" rel="noopener">
           <div class="left">
-            <!-- Spotify -->
-            <img src="assets/Spotify.ico" class="icon" alt="Spotify"/>
-            <div>
-              <div class="label">ProclameCast</div>
-              <div class="hint">Ouça nosso podcast</div>
-            </div>
+            <img src="assets/Pray.png" class="icon" alt="Oração"/>
+            <div><div class="label">Quero pedir oração</div><div class="hint">Envie seu pedido de oração</div></div>
           </div>
-          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
-          </svg>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/></svg>
         </a>
 
-        <a class="btn" href="https://www.instagram.com/pibrioverde/" target="_blank" rel="noopener">
+        <a class="btn" href="https://forms.gle/c4H2JTRLs2xCYY9v7" target="_blank" rel="noopener">
           <div class="left">
-            <!-- Instagram -->
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zM17.6 6.6a.8.8 0 1 1-.8.8.8.8 0 0 1 .8-.8z"/>
-            </svg>
-            <div>
-              <div class="label">Instagram</div>
-              <div class="hint">Avisos e novidades</div>
-            </div>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <div><div class="label">Encontre um Pequeno Grupo</div><div class="hint">Conecte-se com a comunidade</div></div>
           </div>
-          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
-          </svg>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/></svg>
         </a>
 
-        <a class="btn" href="https://wa.me/556499344612?text=Olá!%20Vim%20pelo%20seu%20link." target="_blank" rel="noopener">
+        <a class="btn" href="eventos.html" target="_blank" rel="noopener">
           <div class="left">
-            <!-- WhatsApp -->
-            <img src="assets/whatsapp.ico" class="icon" alt="maps"/>
-            <div>
-              <div class="label">WhatsApp</div>
-              <div class="hint">Fale conosco</div>
-            </div>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+            <div><div class="label">Próximos Eventos</div><div class="hint">Veja o que está por vir</div></div>
           </div>
-          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
-          </svg>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/></svg>
         </a>
 
-        <a class="btn" href="https://www.google.com/maps/place/Primeira+Igreja+Batista+em+Rio+Verde+-+Av.+Pres.+Vargas,+399+-+Centro,+Rio+Verde+-+GO,+75901-040/data=!4m2!3m1!1s0x9361dc9dca61c391:0x2c5a4e5682c76bb?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI1LjMwLjMYACCenQoqmQEsOTQyNjc3MjcsOTQyODIzMzcsOTQyODQ0OTMsOTQyMjMyOTksOTQyMTY0MTMsOTQyODA1NzYsOTQyMTI0OTYsOTQyMDczOTQsOTQyMDc1MDYsOTQyMDg1MDYsOTQyMTc1MjMsOTQyMTg2NTMsOTQyMjk4MzksOTQyNzUxNjgsNDcwODQzOTMsOTQyMTMyMDAsOTQyNTgzMjVCAkJS&skid=0a5a1a91-9001-4a17-97cd-fabfc89879e8" target="_blank" rel="noopener">
+        <a class="btn" href="missoes.html" target="_blank" rel="noopener">
           <div class="left">
-            <img src="assets/maps (1).ico" class="icon" alt="maps"/>
-            <div>
-              <div class="label">Maps</div>
-              <div class="hint">Nossa localização</div>
-            </div>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <div><div class="label">Missões PIB Rio Verde</div><div class="hint">Do outro lado da rua ao mundo</div></div>
           </div>
-            <svg class="arrow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/>
-            </svg>  
-        </a>
-        
-      </div>
-      
-    <!-- Eventos:
-      
-      <div class="events-section">
-        <div class="events-title">Eventos</div>
-        <a class="btn event-btn" href="https://www.e-inscricao.com/cbb/edbparaoalto-2026-go62" target="_blank" rel="noopener">
-          <div class="left">
-            <img src="assets/MSG.ico" class="icon" alt="nome"/>
-            <div>
-              <div class="label">EBD Para o Alto <span class="event-badge">Novidade</span></div>
-              <div class="hint">Um evento que vai mudar a forma como você ensina a Biblia na igreja. </div>
-            </div>
-          </div>
-          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="..."/></svg>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/></svg>
         </a>
 
-      -->
-
-        <!-- Exemplo extra (site/telegram/etc):
-        <a class="btn" href="https://seusite.com" target="_blank" rel="noopener">
+        <a class="btn" href="https://www.youtube.com/@pibrioverde/videos" target="_blank" rel="noopener">
           <div class="left">
-            <img src="local do arquivo" class="icon" alt="nome"/>
-            <div>
-              <div class="label">Meu Site</div>
-              <div class="hint">Portfólio e projetos</div>
-            </div>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.7 12 4.7 12 4.7s-5.7 0-7.5.4A3 3 0 0 0 2.4 7.2 31.6 31.6 0 0 0 2 12a31.6 31.6 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.4 7.5.4 7.5.4s5.7 0 7.5-.4a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 22 12a31.6 31.6 0 0 0-.4-4.8zM10 15.5V8.5L16 12l-6 3.5z"/></svg>
+            <div><div class="label">Mensagens</div><div class="hint">Assista nossas pregações</div></div>
           </div>
-          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="..."/></svg>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/></svg>
         </a>
-        -->
+
+        <a class="btn" href="faca-parte.html" target="_blank" rel="noopener">
+          <div class="left">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <div><div class="label">Faça Parte</div><div class="hint">Batismo, membresia e discipulado</div></div>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 5.6a1 1 0 0 0 0 1.4l4.1 4.1H5a1 1 0 1 0 0 2h12.3l-4.1 4.1a1 1 0 1 0 1.4 1.4l5.8-5.8a1 1 0 0 0 0-1.4l-5.8-5.8a1 1 0 0 0-1.4 0z"/></svg>
+        </a>
+
       </div>
 
       <footer>
@@ -413,6 +422,7 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
   </script>
 </body>
 </html>
